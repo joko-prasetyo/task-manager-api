@@ -66,7 +66,7 @@ router.patch('/tasks/:id' , auth, async (req, res) => {
     if (!isValid) return res.status(400).send({ error: 'invalid updates!' })
 
     try {
-        const task = await Task.find({ _id: req.params.id, owner: req.user._id })
+        const task = await Task.findOne({ _id: req.params.id, owner: req.user._id })
         if(!task) return res.status(404).send()
         updates.forEach(update => task[update] = req.body[update])
         await task.save()
