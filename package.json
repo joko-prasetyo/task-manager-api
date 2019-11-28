@@ -6,7 +6,11 @@
   "scripts": {
     "start": "node src/index.js",
     "dev": "env-cmd ./config/dev.env nodemon src/index.js",
-    "db": "/Users/Robert/mongodb/bin/mongod.exe -dbpath=/Users/Robert/mongodb-data"
+    "db": "/Users/Robert/mongodb/bin/mongod.exe -dbpath=/Users/Robert/mongodb-data",
+    "test": "env-cmd ./config/test.env jest --watch"
+  },
+  "jest": {
+    "testEnvironment": "node"
   },
   "keywords": [],
   "author": "",
@@ -22,9 +26,11 @@
     "nodemailer": "^6.3.1",
     "nodemon": "^1.19.4",
     "sharp": "^0.23.2",
+    "supertest": "^4.0.2",
     "validator": "^12.0.0"
   },
   "devDependencies": {
-    "env-cmd": "^8.0.2"
+    "env-cmd": "^8.0.2",
+    "jest": "^23.6.0"
   }
 }
